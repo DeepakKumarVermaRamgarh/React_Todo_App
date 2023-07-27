@@ -1,70 +1,107 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Todo List App with Redux Toolkit
 
-## Available Scripts
+This is a simple Todo List application built using React and Redux Toolkit. The app allows users to manage their todo items, including adding, updating, deleting, and marking them as completed. The state management is handled using Redux Toolkit's powerful features, such as createAsyncThunk for handling asynchronous API requests and creating a Redux slice to manage the todo list state.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- View a list of todos fetched from an external API (JSONPlaceholder).
+- Add new todo items to the list with a title and initial completion status.
+- Update the title of an existing todo item.
+- Mark a todo item as completed.
+- Delete a todo item from the list.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository to your local machine:
 
-### `npm run build`
+```bash
+git clone https://github.com/DeepakKumarVermaRamgarh/React_Todo_App.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
+    
+```bash
+cd todo-list-app
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install the required dependencies using npm or yarn:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
+or
+```bash
+yearn install
+```
 
-### `npm run eject`
+4. Start the development server:
+```bash
+npm start
+```
+or
+```bash
+yearn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. The application should now be running on http://localhost:3000.
+## How to Use
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Once the app is running, you will see the Todo List with any existing todos fetched from the API.
+- To add a new todo, type the title in the input field and click the "Add Todo" button.
+- To update a todo, double-click on the todo text. This will enable edit mode. After making your changes, press the "✔" button to save the update.
+- To mark a todo as completed, click the checkbox next to the todo. Completed todos cannot be edited.
+- To delete a todo, click the "Delete" button next to the todo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## API Reference
+The application interacts with the JSONPlaceholder API to fetch, add, update, and delete todos. The createAsyncThunk function from Redux Toolkit is used to handle asynchronous API requests.
 
-## Learn More
+- Fetch Initial Todos: The app fetches the initial list of todos from https://jsonplaceholder.typicode.com/todos when it starts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Add Todo: When a new todo is added, it sends a POST request to https://jsonplaceholder.typicode.com/todos with the todo data and updates the state with the newly added todo.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Update Todo: When a todo is updated, it sends a PUT request to https://jsonplaceholder.typicode.com/todos/{todoId} with the updated data and updates the state with the updated todo.
 
-### Code Splitting
+- Mark Completed: When a todo is marked as completed, it sends a PATCH request to https://jsonplaceholder.typicode.com/todos/{todoId} with the updated completed status and updates the state with the completed todo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Delete Todo: When a todo is deleted, it sends a DELETE request to https://jsonplaceholder.typicode.com/todos/{todoId} and removes the corresponding todo from the state.
+## Folder Structure
 
-### Analyzing the Bundle Size
+todo-list-app/
+├── public/
+├── src/
+│   ├── components/
+│   ├── redux/
+│   ├── styles/
+│   ├── App.js
+│   └── index.js
+├── package.json
+├── .gitignore
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- `public/`: Contains public assets and the HTML template for the app.
+- `src/`: Contains the main application files and folders.
+- `components/`: Contains React components used in the application.
+- `redux/`: Contains the Redux logic, including the Redux slice and async thunks for API interactions.
+- `styles/`: Contains styled-components for styling the application.
+- `App.js`: The main component that renders the Todo List app and handles state changes.
+- `index.js`: The entry point of the application.
 
-### Making a Progressive Web App
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **`React`**: A JavaScript library for building user interfaces.
+- **`Redux Toolkit`**: A Redux package that simplifies the Redux workflow and includes utilities like `createAsyncThunk` and `createSlice`.
+- **`styled-components`**: A popular CSS-in-JS library for styling React components.
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Contributions are always welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Authors
 
-### `npm run build` fails to minify
+- [@Deepak Kumar Verma](https://github.com/DeepakKumarVermaRamgarh)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
